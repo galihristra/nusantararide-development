@@ -39,7 +39,7 @@ export class MapsPage {
       enableHighAccuracy : true
     };
 
-    this.geolocation.getCurrentPosition(this.options).then((pos: Geoposition) => {
+    this.geolocation.watchPosition(this.options).subscribe((pos: Geoposition) => {
       this.currentPos = pos;
       console.log(pos);
 
@@ -70,7 +70,8 @@ export class MapsPage {
     let marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
-      position: this.map.getCenter()
+      position: this.map.getCenter(),
+      draggable: true
     });
 
     let content = "<p>This is your current position !</p>";
@@ -80,6 +81,17 @@ export class MapsPage {
 
     google.maps.event.addListener(marker, 'click', () => {
       infoWindow.open(this.map, marker);
+    });
+
+    google.maps.event.addListener(marker, 'dragend', (evt) => {
+      infoWindow.setOptions({
+        content: '<p>Marker dropped: Current Lat: ' + evt.latLng.lat().toFixed(3) + ' Current Lng: ' + evt.latLng.lng().toFixed(3) + '</p>'
+      });
+      infoWindow.open(this.map, marker);
+    });
+
+    google.maps.event.addListener(marker, 'drag', (evt) => {
+      console.log("marker is being dragged.");
     });
   }
 
