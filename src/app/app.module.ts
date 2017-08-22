@@ -27,7 +27,10 @@ import { ConnectivityProvider } from '../providers/connectivity/connectivity';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(NusantarideApp, {tabsPlacement: 'top'})
+    IonicModule.forRoot(NusantarideApp, {
+      tabsPlacement: 'top',
+      tabsLayout: 'title-hide'
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -1,6 +1,6 @@
 import { PostAddPage } from './../post-add/post-add';
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { NavController, ViewController } from 'ionic-angular';
+import { NavController, ViewController, LoadingController } from 'ionic-angular';
 import { Geolocation, GeolocationOptions, Geoposition, PositionError } from "@ionic-native/geolocation";
 
 /**
@@ -25,7 +25,7 @@ export class MapsPage {
   latitude: any;
   longitude: any;
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, private geolocation: Geolocation) {
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController, private geolocation: Geolocation, public loading: LoadingController) {
 
   }
 
@@ -39,7 +39,11 @@ export class MapsPage {
     this.options = {
       enableHighAccuracy : true
     };
+    let loader = this.loading.create({
+      content: 'Please Wait...'
+    });
 
+    loader.present();
     this.geolocation.getCurrentPosition(this.options).then((pos: Geoposition) => {
       this.currentPos = pos;
       console.log(pos);
@@ -47,6 +51,7 @@ export class MapsPage {
       this.addMap(pos.coords.latitude, pos.coords.longitude);
       this.latitude = pos.coords.latitude;
       this.longitude = pos.coords.longitude;
+      loader.dismiss();
     },(err : PositionError) => {
       console.log("error : " + err.message);
     });

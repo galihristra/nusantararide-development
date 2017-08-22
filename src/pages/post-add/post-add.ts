@@ -18,8 +18,6 @@ export class PostAddPage {
   isReadyToSave: boolean;
   item: any;
   form: FormGroup;
-  latitude: string;
-  longitude: string;
   koordinat: string;
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public modalCtrl: ModalController, public navParams: NavParams) {
@@ -58,10 +56,5 @@ export class PostAddPage {
     if (!this.form.valid){ return; }
     this.viewCtrl.dismiss(this.form.value);
     console.log(this.form.value);
-  }
-
-  getLocation(){
-    let modal = this.modalCtrl.create(MapsPage);
-    modal.present();
   }
 }
