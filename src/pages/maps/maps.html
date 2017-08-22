@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title text-center>Get Location</ion-title>
+    <ion-title text-left>Choose Your Location</ion-title>
     <ion-buttons start>
         <button ion-button (click)="cancel()">
           <ion-icon name="close"></ion-icon>
@@ -17,13 +17,18 @@
 
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-searchbar [(ngModel)]="searchInput"></ion-searchbar>
   <div #map id="map"></div>
   <br/>
   <ion-buttons>
     <button ion-button block round (click)="useLocation()" >
       Use This Position
+    </button>
+  </ion-buttons>
+  <ion-buttons>
+    <button ion-button block round (click)="inputManual()">
+      Input Position Manually
     </button>
   </ion-buttons>
 </ion-content>

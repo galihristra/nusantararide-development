@@ -6,16 +6,11 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-title text-center>Add New Post</ion-title>
-    <ion-buttons start>
-      <button ion-button (click)="cancel()">
-        <ion-icon name="close"></ion-icon>
-      </button> 
-    </ion-buttons>
+    <ion-title text-left>Add New Post</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content inset padding>
+<ion-content padding>
   <form *ngIf="form" [formGroup]="form">
     <ion-list>
       <ion-item>
@@ -35,10 +30,7 @@
 
       <ion-item>
         <ion-label stacked>Koordinat</ion-label>
-        <ion-input type="text" formControlName="koordinat" readonly></ion-input>
-        <button ion-button outline item-right icon-only color="dark" (click)="getLocation()">
-          <ion-icon name="locate"></ion-icon>
-        </button>
+        <ion-input type="text" formControlName="koordinat"></ion-input>
       </ion-item>
 
       <ion-item>
@@ -46,6 +38,7 @@
         <ion-textarea formControlName="kesimpulan"></ion-textarea>
       </ion-item>
     </ion-list>
+
   </form>
 
   <ion-fab center bottom>

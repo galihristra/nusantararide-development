@@ -1,6 +1,6 @@
 import { MapsPage } from './../maps/maps';
 import { Component } from '@angular/core';
-import { NavController, ViewController, ModalController } from 'ionic-angular';
+import { NavController, ViewController, ModalController, NavParams } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
 /**
@@ -18,8 +18,10 @@ export class PostAddPage {
   isReadyToSave: boolean;
   item: any;
   form: FormGroup;
+  latitude: string;
+  longitude: string;
 
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public modalCtrl: ModalController, public navParams: NavParams) {
     this.form = formBuilder.group({
       judulFoto: ['', Validators.required],
       tanggalFoto: ['', Validators.required],
@@ -34,8 +36,8 @@ export class PostAddPage {
     });
   }
 
-  ionViewDidLoad() {
-    // console.log('ionViewDidLoad PostAddPage');
+  ionViewDidEnter(){
+   console.log(this.navParams.data);
   }
 
   // user dismiss

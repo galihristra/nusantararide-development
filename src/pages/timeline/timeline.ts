@@ -1,4 +1,5 @@
-import { PostAddPage } from './../post-add/post-add';
+import { MapsPage } from './../maps/maps';
+// import { PostAddPage } from './../post-add/post-add';
 import { Component } from '@angular/core';
 import { NavController, ModalController } from 'ionic-angular';
 
@@ -18,7 +19,7 @@ export class TimelinePage {
    */
   addPost(){
     // alert('add');
-    let addModal = this.modalCtrl.create(PostAddPage);
+    let addModal = this.modalCtrl.create(MapsPage);
     addModal.onDidDismiss(item => {
       if (item){
         // add the added items to the list

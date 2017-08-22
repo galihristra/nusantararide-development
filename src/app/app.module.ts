@@ -3,7 +3,7 @@ import { MapsPage } from './../pages/maps/maps';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
-import { MyApp } from './app.component';
+import { NusantarideApp } from './app.component';
 
 import { TimelinePage } from '../pages/timeline/timeline';
 import { ContactPage } from '../pages/contact/contact';
@@ -17,7 +17,7 @@ import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 
 @NgModule({
   declarations: [
-    MyApp,
+    NusantarideApp,
     TimelinePage,
     ContactPage,
     NavigationPage,
@@ -27,11 +27,11 @@ import { ConnectivityProvider } from '../providers/connectivity/connectivity';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp, {tabsPlacement: 'top'})
+    IonicModule.forRoot(NusantarideApp, {tabsPlacement: 'top'})
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
+    NusantarideApp,
     TimelinePage,
     ContactPage,
     NavigationPage,
