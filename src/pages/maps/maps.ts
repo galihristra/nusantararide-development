@@ -49,9 +49,9 @@ export class MapsPage {
       console.log(pos);
 
       this.addMap(pos.coords.latitude, pos.coords.longitude);
+      loader.dismiss();
       this.latitude = pos.coords.latitude;
       this.longitude = pos.coords.longitude;
-      loader.dismiss();
     },(err : PositionError) => {
       console.log("error : " + err.message);
     });
@@ -125,11 +125,6 @@ export class MapsPage {
       lat: this.latitude,
       lng: this.longitude
     });
-  }
-
-  // user dismiss
-  cancel(){
-    this.viewCtrl.dismiss();
   }
 
   // skip

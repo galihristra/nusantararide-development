@@ -1,5 +1,3 @@
-import { Geolocation } from '@ionic-native/geolocation';
-import { MapsPage } from './../pages/maps/maps';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -10,9 +8,11 @@ import { ContactPage } from '../pages/contact/contact';
 import { NavigationPage } from '../pages/navigation/navigation';
 import { PostAddPage } from "../pages/post-add/post-add";
 import { TabsPage } from '../pages/tabs/tabs';
+import { MapsPage } from './../pages/maps/maps';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Geolocation } from '@ionic-native/geolocation';
 import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 
 @NgModule({
