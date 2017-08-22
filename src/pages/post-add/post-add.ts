@@ -20,6 +20,7 @@ export class PostAddPage {
   form: FormGroup;
   latitude: string;
   longitude: string;
+  koordinat: string;
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, formBuilder: FormBuilder, public modalCtrl: ModalController, public navParams: NavParams) {
     this.form = formBuilder.group({
@@ -37,7 +38,11 @@ export class PostAddPage {
   }
 
   ionViewDidEnter(){
-   console.log(this.navParams.data);
+   if (this.navParams.get('lat') != null && this.navParams.get('lng') != null) {
+    console.log(this.navParams.get('lat') + ", " + this.navParams.get('lng'));
+    this.koordinat = this.navParams.get('lat') + ", " + this.navParams.get('lng');
+    this.form.get('koordinat').disable();
+   }
   }
 
   // user dismiss

@@ -30,7 +30,7 @@
 
       <ion-item>
         <ion-label stacked>Koordinat</ion-label>
-        <ion-input type="text" formControlName="koordinat"></ion-input>
+        <ion-input type="text" formControlName="koordinat" [(ngModel)]="koordinat" ng-disabled="this.koordinat !== null" ></ion-input>
       </ion-item>
 
       <ion-item>

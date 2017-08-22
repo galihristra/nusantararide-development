@@ -40,7 +40,7 @@ export class MapsPage {
       enableHighAccuracy : true
     };
 
-    this.geolocation.watchPosition(this.options).subscribe((pos: Geoposition) => {
+    this.geolocation.getCurrentPosition(this.options).then((pos: Geoposition) => {
       this.currentPos = pos;
       console.log(pos);
 
@@ -104,7 +104,7 @@ export class MapsPage {
 
     // move marker on click
     google.maps.event.addListener(this.map, 'click', (evt) => {
-      // console.log(evt.latLng);
+      console.log(evt.latLng);
       marker.setPosition(evt.latLng);
       this.latitude = evt.latLng.lat().toFixed(3);
       this.longitude = evt.latLng.lng().toFixed(3);
@@ -115,11 +115,11 @@ export class MapsPage {
   // use location
   useLocation(){
     console.log(this.latitude + " and " +  this.longitude);
-    var coords = {
+
+    this.navCtrl.push(PostAddPage, {
       lat: this.latitude,
       lng: this.longitude
-    }
-    this.navCtrl.push(PostAddPage, coords);
+    });
   }
 
   // user dismiss
